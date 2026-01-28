@@ -2,6 +2,9 @@
 
 # IMPLEMENTATION OF RAIL FENCE – ROW & COLUMN TRANSFORMATION TECHNIQUE
 
+# NAME:R.TEJASWINI
+# REG NO:212224230218
+
 # AIM:
 
 # To write a C program to implement the rail fence transposition technique.
@@ -20,6 +23,72 @@ STEP-5: Read the characters row wise or column wise in the former order to get t
 
 # PROGRAM
 
+ #include <stdio.h>
+ 
+ #include <string.h>
+ 
+ #include <ctype.h>
+ 
+ void encryptRailFence(char *message, int rails) {
+ 
+ int len = strlen(message);
+ 
+ char rail[rails][len];
+ 
+ memset(rail, '\n', sizeof(rail));
+ 
+ int row = 0, direction = 1;
+ 
+ for (int i = 0; i < len; i++) {
+ 
+ rail[row][i] = message[i];
+ 
+ row += direction;
+ 
+ if (row == rails- 1 | row == 0)
+ 
+ direction =-direction;
+ 
+ }
+ 
+ printf("Encrypted text: ");
+ 
+ for (int i = 0; i < rails; i++)
+
+ for (int j = 0; j < len; j++)
+ 
+ if (rail[i][j] != '\n')
+ 
+ printf("%c", rail[i][j]);
+ 
+ printf("\n");
+ 
+ }
+ 
+ int main() {
+ 
+ char message[100];
+ 
+ int rails;
+ 
+ printf("Enter a Secret Message: ");
+ 
+ scanf("%s", message);
+ 
+ printf("Enter number of rails: ");
+ 
+ scanf("%d", &rails);
+ 
+ encryptRailFence(message, rails);
+ 
+ return 0;
+ 
+ }
+ 
 # OUTPUT
 
+<img width="1237" height="772" alt="image" src="https://github.com/user-attachments/assets/a8396002-3032-421d-b420-b258ad299c1b" />
+
 # RESULT
+
+The code was executed successfully.
